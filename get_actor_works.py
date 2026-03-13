@@ -2,7 +2,7 @@
 import argparse
 import time
 import random
-from typing import Sequence, Optional
+from typing import Sequence, Optional, Union
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from config import BASE_URL, build_client, LOGGER
@@ -108,9 +108,9 @@ def crawl_actor_works(
 
 def run_actor_works(
     db_path: str = "userdata/actors.db",
-    tags: Optional[Sequence[str] | str] = None,
+    tags: Optional[Union[Sequence[str], str]] = None,
     cookie_json: str = "cookie.json",
-    actor_name: Optional[Sequence[str] | str] = None,
+    actor_name: Optional[Union[Sequence[str], str]] = None,
 ):
     """
     批量读取演员列表，抓取作品并写入指定的 SQLite 数据库文件。

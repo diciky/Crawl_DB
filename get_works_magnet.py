@@ -2,7 +2,7 @@
 import argparse
 import time
 import random
-from typing import List, Dict, Any, Optional, Sequence
+from typing import List, Dict, Any, Optional, Sequence, Union
 from bs4 import BeautifulSoup
 from config import BASE_URL, build_client, LOGGER
 from utils import (
@@ -96,7 +96,7 @@ def run_magnet_jobs(
     out_root: str = "userdata/magnets",
     cookie_json: str = "cookie.json",
     db_path: str = "userdata/actors.db",
-    actor_name: Optional[Sequence[str] | str] = None,
+    actor_name: Optional[Union[Sequence[str], str]] = None,
 ):
     """
     遍历数据库中的作品，抓取磁链并存入 SQLite 数据库文件。
